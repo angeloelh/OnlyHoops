@@ -1,0 +1,26 @@
+# Node / Front & Back
+node_modules/
+dist/
+build/
+.vite/
+# Env
+.env
+.env.local
+**/.env
+**/.env.local
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+## src/lib/ = “boîte à outils” du projet.
+# C’est où tu mets les trucs utiles partout (pas des routes).
+#
+
+##
