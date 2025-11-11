@@ -1,19 +1,23 @@
-import "dotenv/config";
 import express from "express";
 import cors from "cors";
-
-import tournaments from "./routes/tournaments";
-import games from "./routes/games";
+import { db } from "./lib/db";
+import authRoutes from "./routes/auth";
 
 const app = express();
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 app.use(express.json());
 
-app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
+app.get("/api/health", async (_req, res) => {
+    try {
+        const [rows] = await db.query("SELECT 1");
+        res.json({ status: "ok", db: "connected" });
+    } catch (err) {
+        res.status(500).json({ status: "error", error: err });
+    }
+});
 
-app.use("/api/tournaments", tournaments);
-app.use("/api/games", games);
+app.use("/api/auth", authRoutes);
 
 const port = Number(process.env.PORT || 8080);
 app.listen(port, () => {

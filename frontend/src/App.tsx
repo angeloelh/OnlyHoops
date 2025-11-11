@@ -7,7 +7,8 @@ function App() {
         <Router>
             <nav style={{ padding: "1rem", backgroundColor: "#f2f2f2" }}>
                 <Link to="/" style={{ marginRight: "1rem" }}>Accueil</Link>
-                <Link to="/games">Matchs</Link>
+                <Link to="/games"  style={{ marginRight: "1rem" }} >Matchs</Link>
+
             </nav>
 
             <Routes>
