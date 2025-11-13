@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
+import Hoome from "./pages/Home";
 import Games from "./pages/Games";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Logo from "./components/onlyhoops_unofficial_logo.jpg";
+import { Home, Calendar, User, LogIn } from "lucide-react";
 
 function App() {
     return (
@@ -30,15 +31,30 @@ function App() {
                     />
                 </Link>
 
-                <Link to="/">Home</Link>
-                <Link to="/games">Games</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Sign Up</Link>
+                <Link to="/" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <Home size={18} />
+                    Home
+                </Link>
+
+                <Link to="/games" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <Calendar size={18} />
+                    Games
+                </Link>
+
+                <Link to="/login" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <LogIn size={18} />
+                    Login
+                </Link>
+
+                <Link to="/register" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <User size={18} />
+                    Sign Up
+                </Link>
             </nav>
 
             <div style={{ paddingTop: "90px" }}>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Hoome />} />
                     <Route path="/games" element={<Games />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
