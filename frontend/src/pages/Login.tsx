@@ -10,7 +10,7 @@ export default function Login() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const res = await fetch("http://localhost:8080/api/auth/login", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form),
@@ -30,8 +30,22 @@ export default function Login() {
         <div style={{ maxWidth: "400px", margin: "2rem auto", textAlign: "center" }}>
             <h2>Connexion</h2>
             <form onSubmit={handleSubmit}>
-                <input name="email" type="email" placeholder="Email" onChange={handleChange} required /><br/>
-                <input name="password" type="password" placeholder="Mot de passe" onChange={handleChange} required /><br/>
+                <input
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    onChange={handleChange}
+                    required
+                /><br/>
+
+                <input
+                    name="password"
+                    type="password"
+                    placeholder="Mot de passe"
+                    onChange={handleChange}
+                    required
+                /><br/>
+
                 <button type="submit">Se connecter</button>
             </form>
         </div>
